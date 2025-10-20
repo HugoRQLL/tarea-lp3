@@ -1,3 +1,4 @@
+
 public class Pedido {
     private String nombrePlato;
     private String tipoPlato;
@@ -11,12 +12,12 @@ public class Pedido {
         return nombrePlato;
     }
 
-    public void setNombrePlato(String nombrePlato) {
-        this.nombrePlato = nombrePlato;
-    }
-
     public String getTipoPlato() {
         return tipoPlato;
+    }
+
+    public void setNombrePlato(String nombrePlato) {
+        this.nombrePlato = nombrePlato;
     }
 
     public void setTipoPlato(String tipoPlato) {
@@ -25,6 +26,6 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return nombrePlato + " (" + tipoPlato + ")";
+        return "Plato: " + nombrePlato + " | Tipo: " + tipoPlato;
     }
 }
