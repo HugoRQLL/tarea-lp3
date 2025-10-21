@@ -71,4 +71,9 @@ public class Vista {
     public void cerrar() {
         scanner.close();
     }
+
+    public String getUsu() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUsu'");
+    }
 }
