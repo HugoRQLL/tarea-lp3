@@ -1,4 +1,4 @@
-package pedidos;
+package actividad_3;
     
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PedidoVista {
-    Scanner scanner;
+    public Scanner scanner;
 
     public PedidoVista() {
         scanner = new Scanner(System.in);
@@ -17,8 +17,8 @@ public class PedidoVista {
         if (pedidos.isEmpty()) {
             System.out.println("No hay pedidos actualmente.");
         } else {
-            for (int index = 0; index < pedidos.size(); index++) {
-                System.out.println((index + 1) + ". " + pedidos.get(index));
+            for (int i = 0; i < pedidos.size(); i++) {
+                System.out.println((i + 1) + ". " + pedidos.get(i));
             }
         }
     }
@@ -31,16 +31,14 @@ public class PedidoVista {
         return nombre + "," + tipo;
     }
 
-    
     public int solicitarEliminacionPedido() {
         System.out.print("Ingrese el número del pedido a eliminar: ");
         try {
-            return Integer.parseInt(scanner.nextLine()) - 1; 
+            return Integer.parseInt(scanner.nextLine()) - 1;
         } catch (NumberFormatException e) {
-            return -1; 
+            return -1;
         }
     }
-
 
     public String solicitarActualizacionPedido() {
         System.out.print("Ingrese el número del pedido a actualizar: ");
@@ -50,7 +48,6 @@ public class PedidoVista {
         return indiceStr + "," + nuevoNombre;
     }
 
-  
     public String[] solicitarBusquedaPedido() {
         System.out.println("¿Buscar por nombre o tipo?");
         System.out.println("1. Por nombre");
@@ -61,7 +58,6 @@ public class PedidoVista {
         String criterio = scanner.nextLine();
         return new String[]{opcion, criterio};
     }
-
 
     public void mostrarResultadosBusqueda(List<Pedido> resultados) {
         if (resultados.isEmpty()) {
@@ -74,11 +70,45 @@ public class PedidoVista {
         }
     }
 
-
     public void mostrarConteoPedidos(HashMap<String, Integer> conteo) {
         System.out.println("Conteo de Pedidos:");
         for (String key : conteo.keySet()) {
             System.out.println(key + ": " + conteo.get(key));
+        }
+    }
+
+    public String solicitarEstadoMostrar() {
+        System.out.println("¿Mostrar pedidos pendientes o completos?");
+        System.out.println("1. Pendientes");
+        System.out.println("2. Completos");
+        System.out.print("Seleccione una opción: ");
+        String opcion = scanner.nextLine();
+        return "1".equals(opcion) ? "pendiente" : "completado";
+    }
+
+    public void mostrarPedidosPorEstado(List<Pedido> pedidosFiltrados, String estado) {
+        System.out.println("Pedidos " + estado + "s:");
+        if (pedidosFiltrados.isEmpty()) {
+            System.out.println("No hay pedidos " + estado + "s.");
+        } else {
+            for (Pedido p : pedidosFiltrados) {
+                System.out.println(p);
+            }
+        }
+    }
+
+    public void mostrarContadorPendientes(int contador) {
+        System.out.println("Número de pedidos pendientes: " + contador);
+    }
+
+    public void mostrarHistorial(ArrayList<Pedido> historial) {
+        System.out.println("Historial de Pedidos (Completados/Eliminados):");
+        if (historial.isEmpty()) {
+            System.out.println("No hay pedidos en el historial.");
+        } else {
+            for (Pedido p : historial) {
+                System.out.println(p);
+            }
         }
     }
 
