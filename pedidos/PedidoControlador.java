@@ -1,3 +1,4 @@
+package pedidos;
 import java.util.List;
 
 public class PedidoControlador {

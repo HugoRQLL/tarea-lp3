@@ -1,3 +1,4 @@
+package pedidos;
 
 public class Pedido {
     private String nombrePlato;
